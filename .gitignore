@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Scrapy output and logs
+output/
+*.jl
+*.json
+*.csv
+*.log
+
+# IDE
+.vscode/
+.idea/
