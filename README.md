@@ -1,21 +1,21 @@
-# Du an 7 - Scrapy Web Scraping Demo
+# Dự án 7 — Scrapy Web Scraping Demo
 
-Du an Python minh hoa cach dung [Scrapy](https://github.com/scrapy/scrapy) de thu thap du lieu tu website demo `quotes.toscrape.com`.
+Dự án Python minh họa cách sử dụng [Scrapy](https://github.com/scrapy/scrapy) để thu thập dữ liệu từ website luyện tập `quotes.toscrape.com`.
 
-## Chuc nang
-- Thu thap noi dung trich dan, tac gia va the.
-- Tu dong di qua cac trang tiep theo.
-- Xuat du lieu ra JSON hoac CSV.
-- Cau hinh toc do crawl than thien voi website demo.
+## Chức năng
+- Thu thập nội dung trích dẫn, tên tác giả và thẻ.
+- Tự động chuyển sang các trang tiếp theo.
+- Xuất dữ liệu ra JSON hoặc CSV.
+- Cấu hình tốc độ thu thập thận trọng, phù hợp cho việc học.
 
-## 1. Yeu cau
-- Python 3.10 tro len (khuyen nghi Python 3.11-3.13).
-- VS Code va Python extension.
-- Ket noi Internet.
+## 1. Yêu cầu
+- Python 3.10 trở lên (khuyến nghị Python 3.11–3.13).
+- VS Code và Python extension.
+- Kết nối Internet.
 
-## 2. Cai dat tren Windows / VS Code
+## 2. Cài đặt trên Windows / VS Code
 
-Mo terminal tai thu muc du an:
+Mở terminal tại thư mục dự án:
 
 ```powershell
 py -m venv .venv
@@ -24,30 +24,32 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-Neu PowerShell khong cho kich hoat moi truong ao, co the dung truc tiep:
+Nếu PowerShell không cho kích hoạt môi trường ảo, có thể gọi Python trong môi trường ảo trực tiếp:
+
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m scrapy list
 ```
 
-## 3. Chay spider
+## 3. Chạy spider
 
-Chay tu thu muc co file `scrapy.cfg`:
+Chạy lệnh từ thư mục có file `scrapy.cfg`:
 
 ```powershell
 python -m scrapy list
 python -m scrapy crawl quotes
 ```
 
-Luu du lieu:
+Lưu dữ liệu vào JSON hoặc CSV:
+
 ```powershell
 python -m scrapy crawl quotes -O output/quotes.json
 python -m scrapy crawl quotes -O output/quotes.csv
 ```
 
-Tuy chon `-O` ghi de file dau ra neu da ton tai. Thu muc `output` duoc tao tu dong boi spider.
+Tùy chọn `-O` ghi đè file đầu ra nếu file đã tồn tại. Thư mục `output` sẽ được tạo khi Scrapy ghi dữ liệu.
 
-## 4. Cau truc thu muc
+## 4. Cấu trúc thư mục
 
 ```text
 du-an7/
@@ -66,16 +68,18 @@ du-an7/
         └── quotes_spider.py
 ```
 
-## 5. Du lieu dau ra
-Moi ban ghi gom:
-- `text`: noi dung trich dan.
-- `author`: ten tac gia.
-- `tags`: danh sach the.
-- `source_url`: URL trang thu thap.
+## 5. Dữ liệu đầu ra
 
-## 6. Luu y
-Chi thu thap du lieu tren website ban co quyen truy cap. Ton trong dieu khoan su dung, robots.txt, gioi han toc do va quyen rieng tu. Du an mac dinh dung website `quotes.toscrape.com` duoc tao cho muc dich hoc tap.
+Mỗi bản ghi gồm:
+- `text`: nội dung trích dẫn.
+- `author`: tên tác giả.
+- `tags`: danh sách thẻ.
+- `source_url`: URL trang chứa trích dẫn.
 
-## Tai lieu
-- [Scrapy documentation - Tutorial](https://docs.scrapy.org/en/latest/intro/tutorial.html)
-- [Scrapy GitHub](https://github.com/scrapy/scrapy)
+## 6. Lưu ý sử dụng có trách nhiệm
+
+Chỉ thu thập dữ liệu từ website mà bạn được phép truy cập. Tôn trọng điều khoản sử dụng, `robots.txt`, giới hạn tốc độ và quyền riêng tư. Dự án mặc định dùng website `quotes.toscrape.com` phục vụ mục đích học tập.
+
+## Tài liệu
+- [Scrapy documentation — Tutorial](https://docs.scrapy.org/en/latest/intro/tutorial.html)
+- [Mã nguồn Scrapy trên GitHub](https://github.com/scrapy/scrapy)
